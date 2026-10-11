@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Smart Debt Messenger</title>
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #3730a3;
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --surface-card: #334155;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --emerald: #10b981;
+            --amber: #f59e0b;
+            --rose: #ef4444;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+        header { background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+        .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+        .logo-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--primary) 0%, #06b6d4 100%); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white; }
+        .app-title { font-size: 1.125rem; font-weight: 800; color: #fff; }
+        .app-sub { font-size: 0.75rem; color: var(--text-muted); }
+        .container { flex: 1; max-width: 900px; margin: 0 auto; width: 100%; padding: 1.25rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+        .stat-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.25rem; }
+        .stat-label { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .stat-val { font-size: 1.5rem; font-weight: 800; color: #fff; }
+        .card { background: var(--surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 1.25rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+        .card-title { font-size: 1.125rem; font-weight: 700; color: #fff; }
+        .customer-row { display: flex; align-items: center; justify-content: space-between; padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .customer-row:last-child { border-bottom: none; }
+        .customer-info h4 { font-size: 0.95rem; font-weight: 700; }
+        .customer-info p { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.625rem 1.25rem; border-radius: 0.75rem; font-size: 0.875rem; font-weight: 700; border: none; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:active { transform: scale(0.98); }
+        .btn-sms { background: #059669; color: white; }
+        .btn-wa { background: #16a34a; color: white; }
+        .badge { font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 9999px; }
+        .badge-critical { background: rgba(239,68,68,0.2); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+        .actions-group { display: flex; gap: 0.5rem; }
+        .online-banner { background: rgba(79,70,229,0.15); border: 1px solid rgba(79,70,229,0.3); border-radius: 1rem; padding: 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .online-banner p { font-size: 0.85rem; color: #c7d2fe; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-area">
+            <div class="logo-icon">📱</div>
+            <div>
+                <div class="app-title">Smart Debt Messenger</div>
+                <div class="app-sub">تطبيق إدارة ديون العملاء وأقساط SMS</div>
+            </div>
+        </div>
+        <a href="https://ais-dev-i73sqlbhgq7umnsf2tajel-181592326577.europe-west2.run.app" class="btn btn-primary" style="padding: 0.5rem 0.85rem; font-size: 0.75rem;">النسخة السحابية</a>
+    </header>
+
+    <div class="container">
+        <div class="online-banner">
+            <div>
+                <strong>تطبيق مثبت بنجاح على أندرويد (APK)</strong>
+                <p>يعمل هذا التطبيق بكامل وظائفه مع دعم إرسال رسائل SMS المباشرة وواتساب لكافة العملاء.</p>
+            </div>
+            <a href="https://ais-dev-i73sqlbhgq7umnsf2tajel-181592326577.europe-west2.run.app" class="btn btn-primary" style="font-size: 0.8rem;">فتح الموقع الحي</a>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">إجمالي الديون المسجلة</div>
+                <div class="stat-val" style="color: #f87171;">74,500 <span style="font-size: 0.9rem;">ريال</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">العملاء المدينين</div>
+                <div class="stat-val" style="color: #60a5fa;">18 <span style="font-size: 0.9rem;">عميل</span></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">خطط الأقساط النشطة</div>
+                <div class="stat-val" style="color: #34d399;">5 <span style="font-size: 0.9rem;">خطط</span></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">قائمة العملاء والإجراءات السريعة (SMS / واتساب)</div>
+            </div>
+            <div id="customerList">
+                <div class="customer-row">
+                    <div class="customer-info">
+                        <h4>محمد عبد الله القحطاني</h4>
+                        <p>0551234567 • الدين: <strong>12,400 ريال</strong></p>
+                    </div>
+                    <div class="actions-group">
+                        <span class="badge badge-critical">إلحاح حرج</span>
+                        <a href="sms:0551234567?body=عزيزي محمد القحطاني نود تذكيركم بسداد المبلغ المستحق وقدره 12400 ريال شاكرين تعاونكم" class="btn btn-sms">SMS</a>
+                        <a href="https://wa.me/966551234567?text=السلام عليكم أخي محمد نود تذكيركم بسداد المبلغ المستحق" class="btn btn-wa">واتساب</a>
+                    </div>
+                </div>
+                <div class="customer-row">
+                    <div class="customer-info">
+                        <h4>شركة الأفق للتجارة</h4>
+                        <p>0509876543 • الدين: <strong>28,000 ريال</strong></p>
+                    </div>
+                    <div class="actions-group">
+                        <span class="badge" style="background: rgba(245,158,11,0.2); color: #fde68a;">مرتفع</span>
+                        <a href="sms:0509876543?body=تذكير بسداد رصيد الحساب المستحق وقدره 28000 ريال" class="btn btn-sms">SMS</a>
+                        <a href="https://wa.me/966509876543" class="btn btn-wa">واتساب</a>
+                    </div>
+                </div>
+                <div class="customer-row">
+                    <div class="customer-info">
+                        <h4>سالم أحمد العتيبي</h4>
+                        <p>0543322114 • الدين: <strong>4,800 ريال</strong> (خطة أقساط 3 دفعات)</p>
+                    </div>
+                    <div class="actions-group">
+                        <span class="badge" style="background: rgba(99,102,241,0.2); color: #c7d2fe;">تقسيط نشط</span>
+                        <a href="sms:0543322114?body=تذكير بموعد القسط الأول وقدره 1600 ريال المستحق في 15 الشهر" class="btn btn-sms">SMS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
